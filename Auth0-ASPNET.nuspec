@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Auth0-ASPNET</id>
+    <version>0.9.6</version>
+    <title>Configure Auth0 with ASP.NET</title>
+    <authors>Auth0</authors>
+    <owners>Auth0</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/auth0/auth0-aspnet</projectUrl>
+    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Creates an HTTP handler to accept Auth0 callback and exchange code with access token.</description>
+    <tags>asp.net mvc wif auth0</tags>
+    <dependencies>
+      <dependency id="Auth0" version="1.0.9" />
+      <dependency id="ClaimsCookie" version="0.9.6" />
+    </dependencies>
+  </metadata>
+</package>
