@@ -33,6 +33,14 @@ namespace $rootnamespace$
                 { "provider", profile.Identities.First().Provider },
 				{ "access_token", token.AccessToken }
             };
+			
+			// NOTE: Uncomment the following code in order to include claims from associated identities
+            // profile.Identities.ToList().ForEach(i =>
+            // {
+            //     user.Add(i.Connection + ".access_token", i.AccessToken);
+            //     user.Add(i.Connection + ".provider", i.Provider);
+            //     user.Add(i.Connection + ".user_id", i.UserId);
+            // });
 
             // NOTE: this will set a cookie with all the user claims that will be converted 
             //       to a ClaimsPrincipal for each request using the ClaimsCookie HttpModule . 
