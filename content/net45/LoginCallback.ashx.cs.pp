@@ -36,9 +36,9 @@ namespace $rootnamespace$
             // NOTE: Uncomment the following code in order to include claims from associated identities
             //profile.Identities.ToList().ForEach(i =>
             //{
-            //    new KeyValuePair<string, object>(i.Connection + ".access_token", i.AccessToken);
-            //    new KeyValuePair<string, object>(i.Connection + ".provider", i.Provider);
-            //    new KeyValuePair<string, object>(i.Connection + ".user_id", i.UserId);
+            //    user.Add(new KeyValuePair<string, object>(i.Connection + ".access_token", i.AccessToken));
+            //    user.Add(new KeyValuePair<string, object>(i.Connection + ".provider", i.Provider));
+            //    user.Add(new KeyValuePair<string, object>(i.Connection + ".user_id", i.UserId));
             //});
 
             // NOTE: this will set a cookie with all the user claims that will be converted 
