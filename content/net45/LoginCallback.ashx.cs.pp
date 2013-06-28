@@ -28,6 +28,7 @@ namespace $rootnamespace$
                 new KeyValuePair<string, object>("picture", profile.Picture),
                 new KeyValuePair<string, object>("user_id", profile.UserId),
                 new KeyValuePair<string, object>("id_token", token.IdToken),
+                new KeyValuePair<string, object>("access_token", token.IdToken),
                 new KeyValuePair<string, object>("connection", profile.Identities.First().Connection),
                 new KeyValuePair<string, object>("provider", profile.Identities.First().Provider)
             };
