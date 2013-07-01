@@ -14,7 +14,7 @@
     <tags>asp.net mvc wif auth0</tags>
     <dependencies>
       <dependency id="Auth0" version="1.0.9" />
-      <dependency id="ClaimsCookie" version="0.9.6" />
+      <dependency id="ClaimsCookie" version="1.0.0" />
     </dependencies>
   </metadata>
 </package>
