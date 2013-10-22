@@ -1,8 +1,10 @@
 ﻿<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-	<configSections>
-		<section name="system.identityModel" type="System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" xdt:Transform="Insert" />
+	<configSections xdt:Transform="InsertBefore(/configuration/*[1])" />
+	<configSections xdt:Locator="XPath(/configuration/configSections[last()])">
+		<section name="system.identityModel" type="System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />
 	</configSections>
-	<appSettings>
+	<configSections xdt:Transform="RemoveAll" xdt:Locator="Condition(count(*)=0)" />
+	<appSettings xdt:Transform="InsertIfMissing">
 		<!-- 
 			Auth0 configuration 
 		-->

@@ -1,5 +1,5 @@
 ﻿<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-	<appSettings>
+	<appSettings xdt:Transform="InsertIfMissing">
 	  	<!-- 
 	  		Auth0 configuration 
 	  	-->
