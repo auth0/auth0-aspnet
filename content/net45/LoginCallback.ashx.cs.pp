@@ -14,7 +14,7 @@ namespace $rootnamespace$
 
         public void ProcessRequest(HttpContext context)
         {
-            var token = client.ExchangeAuthorizationCodePerAccessToken(context.Request.QueryString["code"], ConfigurationManager.AppSettings["auth0:CallbackUrl"]);
+            var token = client.ExchangeAuthorizationCodePerAccessToken(context.Request.QueryString["code"], context.Request.Url.ToString());
             var profile = client.GetUserInfo(token.AccessToken);
 
             var user = new List<KeyValuePair<string, object>>
@@ -31,6 +31,7 @@ namespace $rootnamespace$
                 new KeyValuePair<string, object>("access_token", token.AccessToken),
                 new KeyValuePair<string, object>("connection", profile.Identities.First().Connection),
                 new KeyValuePair<string, object>("provider", profile.Identities.First().Provider)
+
             };
 
             // NOTE: Uncomment the following code in order to include claims from associated identities
@@ -40,11 +41,20 @@ namespace $rootnamespace$
             //    user.Add(new KeyValuePair<string, object>(i.Connection + ".provider", i.Provider));
             //    user.Add(new KeyValuePair<string, object>(i.Connection + ".user_id", i.UserId));
             //});
+            
+            // NOTE: uncomment this if you send roles
+            // user.Add(new KeyValuePair<string, object>(ClaimTypes.Role, profile.ExtraProperties["roles"]));
 
             // NOTE: this will set a cookie with all the user claims that will be converted 
             //       to a ClaimsPrincipal for each request using the ClaimsCookie HttpModule . 
             //       You can choose your own mechanism to keep the user authenticated (FormsAuthentication, Session, etc.)
-            ClaimsCookie.ClaimsCookieModule.Instance.CreateSessionSecurityToken(user);
+            ClaimsCookie.ClaimsCookieModule.Instance.CreateSessionCookie(user);
+            
+            if (context.Request.QueryString["state"] != null && context.Request.QueryString["state"].StartsWith("ru="))
+            {
+                var state = HttpUtility.ParseQueryString(context.Request.QueryString["state"]);
+                context.Response.Redirect(state["ru"], true);
+            }
 
             context.Response.Redirect("/");
         }
