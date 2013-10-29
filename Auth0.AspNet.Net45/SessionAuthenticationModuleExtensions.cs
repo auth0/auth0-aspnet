@@ -54,16 +54,25 @@
             sessionAuthenticationModule.CookieHandler.RequireSsl = requireSsl;
             sessionAuthenticationModule.CookieHandler.HideFromClientScript = httpOnly;
 
-            var claims = new List<Claim>
+            var claims = new List<Claim>();
+
+            if (user.Any(a => a.Key == "name"))
             {
-                new Claim(ClaimTypes.Name, user.First(a => a.Key == "name").Value.ToString()),
-                new Claim(
-                    ClaimTypes.NameIdentifier,
-                    user.First(a => a.Key == "user_id").Value.ToString()),
-                new Claim(
-                    "http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider",
-                    user.First(a => a.Key == "connection").Value.ToString())
-            };
+                claims.Add(new Claim(ClaimTypes.Name, user.First(a => a.Key == "name").Value.ToString()));
+            }
+
+            if (user.Any(a => a.Key == "user_id"))
+            {
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, user.First(a => a.Key == "user_id").Value.ToString()));
+            }
+
+            if (user.Any(a => a.Key == "connection"))
+            {
+                claims.Add(
+                    new Claim(
+                        "http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider",
+                        user.First(a => a.Key == "connection").Value.ToString()));
+            }
 
             foreach (var attribute in user)
             {
