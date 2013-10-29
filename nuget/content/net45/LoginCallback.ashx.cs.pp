@@ -17,7 +17,7 @@
         public void ProcessRequest(HttpContext context)
         {
             var token = client.ExchangeAuthorizationCodePerAccessToken(context.Request.QueryString["code"], context.Request.Url.ToString());
-            var profile = client.GetUserInfo(token.AccessToken);
+            var profile = client.GetUserInfo(token);
 
             var user = new List<KeyValuePair<string, object>>
             {
