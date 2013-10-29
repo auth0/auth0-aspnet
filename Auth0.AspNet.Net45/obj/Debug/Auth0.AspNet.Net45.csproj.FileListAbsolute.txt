@@ -1,0 +1,7 @@
+C:\Qraftlabs\auth0-aspnet\Auth0.AspNet.Net45\obj\Debug\Auth0.AspNet.Net45.csprojResolveAssemblyReference.cache
+C:\Qraftlabs\auth0-aspnet\nuget\lib\net45\Auth0.AspNet.dll
+C:\Qraftlabs\auth0-aspnet\nuget\lib\net45\Auth0.AspNet.pdb
+C:\Qraftlabs\auth0-aspnet\Auth0.AspNet.Net45\obj\Debug\Auth0.AspNet.dll
+C:\Qraftlabs\auth0-aspnet\Auth0.AspNet.Net45\obj\Debug\Auth0.AspNet.pdb
+C:\Qraftlabs\auth0-aspnet\Auth0.AspNet.Net45\bin\Debug\Auth0.AspNet.dll
+C:\Qraftlabs\auth0-aspnet\Auth0.AspNet.Net45\bin\Debug\Auth0.AspNet.pdb

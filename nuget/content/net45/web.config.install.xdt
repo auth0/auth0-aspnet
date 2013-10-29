@@ -12,4 +12,12 @@
 		<add key="auth0:ClientSecret" value="" xdt:Locator="Match(key)" xdt:Transform="InsertIfMissing" />
 		<add key="auth0:Domain" value="" xdt:Locator="Match(key)" xdt:Transform="InsertIfMissing" />
 	</appSettings>
+	<system.identityModel xdt:Transform="InsertIfMissing">
+		<identityConfiguration xdt:Transform="InsertIfMissing">
+			<securityTokenHandlers xdt:Transform="InsertIfMissing">
+				<remove type="System.IdentityModel.Tokens.SessionSecurityTokenHandler, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xdt:Locator="Match(type)" xdt:Transform="InsertIfMissing" />
+				<add type="System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xdt:Locator="Match(type)" xdt:Transform="InsertIfMissing" />
+			</securityTokenHandlers>
+		</identityConfiguration>
+	</system.identityModel>
 </configuration>

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-
-namespace $rootnamespace$
+﻿namespace $rootnamespace$
 {
+	using Auth0.AspNet;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.IdentityModel.Services;
+	using System.Linq;
+	using System.Web;
+
     public class LoginCallback : IHttpHandler
     {
         private readonly Auth0.Client client = new Auth0.Client(
@@ -46,9 +48,9 @@ namespace $rootnamespace$
             // user.Add(new KeyValuePair<string, object>(ClaimTypes.Role, profile.ExtraProperties["roles"]));
 
             // NOTE: this will set a cookie with all the user claims that will be converted 
-            //       to a ClaimsPrincipal for each request using the ClaimsCookie HttpModule . 
+            //       to a ClaimsPrincipal for each request using the SessionAuthenticationModule HttpModule . 
             //       You can choose your own mechanism to keep the user authenticated (FormsAuthentication, Session, etc.)
-            ClaimsCookie.ClaimsCookieModule.Instance.CreateSessionCookie(user);
+            FederatedAuthentication.SessionAuthenticationModule.CreateSessionCookie(user);
             
             if (context.Request.QueryString["state"] != null && context.Request.QueryString["state"].StartsWith("ru="))
             {

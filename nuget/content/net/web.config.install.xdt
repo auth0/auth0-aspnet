@@ -1,0 +1,23 @@
+﻿<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<configSections xdt:Transform="InsertBefore(/configuration/*[1])" />
+	<configSections xdt:Locator="XPath(/configuration/configSections[last()])">
+		<section name="microsoft.identityModel" type="Microsoft.IdentityModel.Configuration.MicrosoftIdentityModelSection, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />
+	</configSections>
+	<configSections xdt:Transform="RemoveAll" xdt:Locator="Condition(count(*)=0)" />
+	<appSettings xdt:Transform="InsertIfMissing">
+	  	<!-- 
+	  		Auth0 configuration 
+	  	-->
+		<add key="auth0:ClientId" value="" xdt:Locator="Match(key)" xdt:Transform="InsertIfMissing" />
+		<add key="auth0:ClientSecret" value="" xdt:Locator="Match(key)" xdt:Transform="InsertIfMissing" />
+		<add key="auth0:Domain" value="" xdt:Locator="Match(key)" xdt:Transform="InsertIfMissing" />
+    </appSettings>
+	<microsoft.identityModel xdt:Transform="InsertIfMissing">
+		<service xdt:Transform="InsertIfMissing">
+			<securityTokenHandlers xdt:Transform="InsertIfMissing">
+				<remove type="Microsoft.IdentityModel.Tokens.SessionSecurityTokenHandler, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" xdt:Locator="Match(type)" xdt:Transform="InsertIfMissing" />
+				<add type="Auth0.AspNet.MachineKeySessionSecurityTokenHandler, Auth0.AspNet" xdt:Locator="Match(type)" xdt:Transform="InsertIfMissing" />
+			</securityTokenHandlers>
+		</service>
+	</microsoft.identityModel>
+</configuration>
