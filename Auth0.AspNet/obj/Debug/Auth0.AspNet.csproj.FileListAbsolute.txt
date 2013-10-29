@@ -1,8 +1,0 @@
-C:\Qraftlabs\auth0-aspnet\Auth0.AspNet\bin\Debug\Auth0.AspNet.dll
-C:\Qraftlabs\auth0-aspnet\Auth0.AspNet\bin\Debug\Auth0.AspNet.pdb
-C:\Qraftlabs\auth0-aspnet\Auth0.AspNet\bin\Debug\Microsoft.IdentityModel.dll
-C:\Qraftlabs\auth0-aspnet\Auth0.AspNet\obj\Debug\Auth0.AspNet.csprojResolveAssemblyReference.cache
-C:\Qraftlabs\auth0-aspnet\Auth0.AspNet\obj\Debug\Auth0.AspNet.dll
-C:\Qraftlabs\auth0-aspnet\Auth0.AspNet\obj\Debug\Auth0.AspNet.pdb
-C:\Qraftlabs\auth0-aspnet\nuget\lib\net\Auth0.AspNet.dll
-C:\Qraftlabs\auth0-aspnet\nuget\lib\net\Auth0.AspNet.pdb

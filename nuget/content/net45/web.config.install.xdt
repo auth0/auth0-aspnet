@@ -17,6 +17,7 @@
 			<securityTokenHandlers xdt:Transform="InsertIfMissing">
 				<remove type="System.IdentityModel.Tokens.SessionSecurityTokenHandler, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xdt:Locator="Match(type)" xdt:Transform="InsertIfMissing" />
 				<add type="System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" xdt:Locator="Match(type)" xdt:Transform="InsertIfMissing" />
+				<!-- TODO: The MachineKeySessionSecurityTokenHandler makes use of the machine key. Please configure that from system.web/machineKey -->
 			</securityTokenHandlers>
 		</identityConfiguration>
 	</system.identityModel>

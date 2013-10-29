@@ -1,10 +1,11 @@
 ﻿namespace $rootnamespace$
 {
 	using Auth0.AspNet;
-	using System.Collections.Generic;
-	using System.Configuration;
-	using System.Linq;
-	using System.Web;
+    using Microsoft.IdentityModel.Web;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
+    using System.Web;
 
     public class LoginCallback : IHttpHandler
     {
@@ -47,7 +48,7 @@
             // user.Add(new KeyValuePair<string, object>(ClaimTypes.Role, profile.ExtraProperties["roles"]));
 
             // NOTE: this will set a cookie with all the user claims that will be converted 
-            //       to a ClaimsPrincipal for each request using the SessionAuthenticationModule HttpModule . 
+            //       to a ClaimsPrincipal for each request using the SessionAuthenticationModule HttpModule. 
             //       You can choose your own mechanism to keep the user authenticated (FormsAuthentication, Session, etc.)
             FederatedAuthentication.SessionAuthenticationModule.CreateSessionCookie(user);
             

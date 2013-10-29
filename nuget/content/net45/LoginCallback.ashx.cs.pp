@@ -48,7 +48,7 @@
             // user.Add(new KeyValuePair<string, object>(ClaimTypes.Role, profile.ExtraProperties["roles"]));
 
             // NOTE: this will set a cookie with all the user claims that will be converted 
-            //       to a ClaimsPrincipal for each request using the SessionAuthenticationModule HttpModule . 
+            //       to a ClaimsPrincipal for each request using the SessionAuthenticationModule HttpModule. 
             //       You can choose your own mechanism to keep the user authenticated (FormsAuthentication, Session, etc.)
             FederatedAuthentication.SessionAuthenticationModule.CreateSessionCookie(user);
             
