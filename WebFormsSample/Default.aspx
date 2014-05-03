@@ -8,7 +8,7 @@
 </head>
 <body>    
     <% if (!Request.IsAuthenticated) { %>
-        <script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.4.min.js"></script>
+        <script src="https://cdn.auth0.com/w2/auth0-widget-2.4.min.js"></script>
         <script type="text/javascript">
             var widget = new Auth0Widget({
                 domain:     '<%= System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"] %>',
