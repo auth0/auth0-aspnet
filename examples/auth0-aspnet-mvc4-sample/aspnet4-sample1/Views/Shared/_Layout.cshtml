@@ -1,4 +1,5 @@
-﻿@using System.Security.Claims;
+﻿@using System.Configuration
+@using System.Security.Claims;
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +43,9 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+    <script src="https://cdn.auth0.com/js/lock-8.2.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('wzjXXucabNXMOwstvnNJ4fCjx6WT1ymt', 'guerere-techaid.auth0.com');
+      var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]');
 
 
       function signin() {
