@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>WCF Sample</title>
+</head>
+<body>
+
+    <button class="btn-login">Login</button>
+    <div class="protected" style="display: none">
+        <button onclick="logout()">Logout</button>
+        <div class="user"></div>
+        <strong>Result from Web Service</strong>
+        <div class="result"></div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>    
+    <script src="http://cdn.auth0.com/js/lock-8.2.min.js"></script>
+
+    <script type="text/javascript">
+        // every request send to a service will have the Authorization header with a token
+        $.ajaxSetup({
+            'beforeSend': function (xhr) {
+                if (localStorage.getItem('id_token')) {
+                    xhr.setRequestHeader('Authorization',
+                          'Bearer ' + localStorage.getItem('id_token'));
+                }
+            }
+        });
+
+        // TODO: change with your keys
+        var lock = new Auth0Lock('{CLIENT_ID}', '{CLIENT_DOMAIN}');
+
+        // the response from Auth0 will come in the window.location.hash and we'll parse it here and store it in cookies
+        var hash = lock.parseHash(window.location.hash);
+        if (hash) {
+            if (hash.error) {
+                console.log("There was an error logging in", hash.error);
+                alert('There was an error: ' + hash.error + '\n' + hash.error_description);
+            } else {
+                //save the token in the session:
+                localStorage.setItem('id_token', hash.id_token);
+            }
+        }
+
+        var id_token = localStorage.getItem('id_token');
+        if (id_token) {
+            lock.getProfile(id_token, function (err, profile) {
+                if (err) {
+                    return alert('There was an error geting the profile: ' + err.message);
+                }
+                $('.btn-login').hide();
+                $('.protected').show();
+                $('.user').html('Welcome ' + profile.name);
+                $.ajax({
+                    url: '/WcfService.svc/DoWork',
+                    type: 'GET',
+                    dataType: 'json'                    
+                })
+                  .done(function (json) {
+                      $('.result').html(JSON.stringify(json));
+                  })
+                  .fail(function (jqxhr, textStatus, error) {
+                      // wrong token probably
+                      var err = textStatus + ", " + error;
+                      console.log("Request Failed: " + error);
+                  });
+            });
+        }
+
+        $('.btn-login').click(function (e) {
+            e.preventDefault();
+            lock.show();
+        });
+
+        function logout() {
+            localStorage.removeItem("profile");
+            localStorage.removeItem("id_token");
+
+            location.href = "/";
+        }
+    </script>
+
+</body>
+</html>
