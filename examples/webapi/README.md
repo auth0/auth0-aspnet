@@ -4,7 +4,7 @@ This is the seed project you need to use if you're going to create an ASP.NET We
 This example is deployed in an Azure Web Site at https://auth0-aspnet-webapi.azurewebsites.net.
 
 #Running the example
-In order to run the example you need to have Visual Studio 2013 installed.
+In order to run the example you need to have Visual Studio 2013/2015 installed.
 
 Install package Auth0.ASPNET via Package Manager or running the following command:
 
