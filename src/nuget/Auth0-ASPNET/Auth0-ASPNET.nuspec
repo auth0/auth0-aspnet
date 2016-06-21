@@ -31,8 +31,8 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="..\Auth0.AspNet\bin\Debug\Auth0.AspNet.dll" target="lib\net" />
-    <file src="..\Auth0.AspNet.Net45\bin\Debug\Auth0.AspNet.dll" target="lib\net45" />
+    <file src="..\..\Auth0.AspNet\bin\Debug\Auth0.AspNet.dll" target="lib\net" />
+    <file src="..\..\Auth0.AspNet.Net45\bin\Debug\Auth0.AspNet.dll" target="lib\net45" />
     <file src="content\**\*.*" target="content" />
   </files>
 </package>
