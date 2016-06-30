@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Auth0-ASPNET</id>
-    <version>1.5.0-beta1</version>
+    <version>1.5.0</version>
     <title>Configure Auth0 with ASP.NET</title>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
@@ -15,7 +15,7 @@
     <tags>asp.net mvc wif auth0 session cookie</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.5">
-        <dependency id="Auth0.AuthenticationApi" version="3.1.0" />
+        <dependency id="Auth0.AuthenticationApi" version="3.2.0" />
         <dependency id="WebActivatorEx" version="2.0.1" />
       </group>
       <group targetFramework=".NETFramework4.0">

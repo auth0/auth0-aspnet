@@ -39,6 +39,7 @@
                 new KeyValuePair<string, object>("user_id", profile.UserId),
                 new KeyValuePair<string, object>("id_token", token.IdToken),
                 new KeyValuePair<string, object>("access_token", token.AccessToken),
+                new KeyValuePair<string, object>("refresh_token", token.RefreshToken),
                 new KeyValuePair<string, object>("connection", profile.Identities.First().Connection),
                 new KeyValuePair<string, object>("provider", profile.Identities.First().Provider)
             };
