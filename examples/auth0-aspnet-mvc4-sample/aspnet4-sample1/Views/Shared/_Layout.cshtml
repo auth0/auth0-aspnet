@@ -43,19 +43,21 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="https://cdn.auth0.com/js/lock-9.0.js"></script>
+    <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]');
+        var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]', {
+            auth: {
+                redirectUrl: 'http://localhost:4987/LoginCallback.ashx'
+              , responseType: 'code'
+              , params: {
+                  scope: 'openid profile'
+              }
+            }
+        });
 
 
       function signin() {
-        lock.show({
-            callbackURL: 'http://localhost:4987/LoginCallback.ashx'
-          , responseType: 'code'
-          , authParams: {
-            scope: 'openid profile'
-          }
-        });
+        lock.show();
       }
     </script>
 </body>
