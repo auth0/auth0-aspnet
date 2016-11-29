@@ -1,4 +1,4 @@
-namespace Api.App_Start
+﻿namespace $rootnamespace$.App_Start
 {
     using System;
     using System.Collections.Generic;
