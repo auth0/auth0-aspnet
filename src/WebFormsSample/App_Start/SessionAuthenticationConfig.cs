@@ -1,4 +1,6 @@
 using System;
+using System.IdentityModel.Selectors;
+using Microsoft.IdentityModel.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebFormsSample.App_Start.SessionAuthenticationConfig), "PreAppStart")]
@@ -9,7 +11,7 @@ namespace WebFormsSample.App_Start
     {
         public static void PreAppStart()
         {
-            DynamicModuleUtility.RegisterModule(typeof(System.IdentityModel.Services.SessionAuthenticationModule));
+            DynamicModuleUtility.RegisterModule(typeof(Microsoft.IdentityModel.Web.SessionAuthenticationModule));
         }
     }
 }

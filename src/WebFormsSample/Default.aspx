@@ -19,7 +19,7 @@
         <button onclick="widget.signin()">Login</button>
     <% } else { %>
         <form runat="server">
-            Hi <%= System.Security.Claims.ClaimsPrincipal.Current.FindFirst("name").Value %>!
+            Hi <%= User.Identity.Name %>!
             <asp:Button runat="server" OnClick="Logout_Click" Text="Logout" />
         </form>
     <% } %>

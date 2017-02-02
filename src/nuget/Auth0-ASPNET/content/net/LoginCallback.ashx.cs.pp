@@ -9,10 +9,9 @@
 
     public class LoginCallback : IHttpHandler
     {
-        private readonly Auth0.Client client = new Auth0.Client(
-                                ConfigurationManager.AppSettings["auth0:ClientId"],
-                                ConfigurationManager.AppSettings["auth0:ClientSecret"],
-                                ConfigurationManager.AppSettings["auth0:Domain"]);
+        private readonly Auth0Client client = new Auth0Client(ConfigurationManager.AppSettings["auth0:Domain"],
+                ConfigurationManager.AppSettings["auth0:ClientId"],
+                ConfigurationManager.AppSettings["auth0:ClientSecret"]);
 
         public void ProcessRequest(HttpContext context)
         {
