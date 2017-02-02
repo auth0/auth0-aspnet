@@ -8,15 +8,23 @@
 </head>
 <body>    
     <% if (!Request.IsAuthenticated) { %>
-        <script src="https://cdn.auth0.com/w2/auth0-widget-5.1.min.js"></script>
+        <script src="https://cdn.auth0.com/js/lock/10.8.0/lock.min.js"></script>
         <script type="text/javascript">
-            var widget = new Auth0Widget({
-                domain:     '<%= System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"] %>',
-                clientID:   '<%= System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"] %>',
-                callbackURL: window.location.origin + '/LoginCallback.ashx'
-            });
+            var lock = new Auth0Lock(
+                "<%= System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"] %>",
+                "<%= System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"] %>",
+                {
+                    auth: {
+                        redirectUrl: window.location.origin + '/LoginCallback.ashx',
+                        responseType: 'code',
+                        params: {
+                            scope: 'openid profile'
+                        }
+                    }
+                }
+              );
         </script>
-        <button onclick="widget.signin()">Login</button>
+        <button onclick="lock.show()">Login</button>
     <% } else { %>
         <form runat="server">
             Hi <%= User.Identity.Name %>!
