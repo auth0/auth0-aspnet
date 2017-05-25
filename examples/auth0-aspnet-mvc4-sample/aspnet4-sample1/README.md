@@ -17,6 +17,8 @@ You also need to set the ClientSecret and ClientId of your Auth0 app in the `web
 <add key="auth0:Domain" value="{DOMAIN}" />
 ```
 
+Don't forget to add `http://localhost:4987/LoginCallback.ashx` as **Allowed Callback URLs** and `http://localhost:4987/` as **Allowed Logout URLs** in your app settings.
+
 After that just press **F5** to run the application. It will start running in port **4987**. Navigate to [http://localhost:4987/](http://localhost:4987/).
 
 **Note:** You can change CallbackURL in `Views/Shared/_Layout.cshtml` on the line 53.
