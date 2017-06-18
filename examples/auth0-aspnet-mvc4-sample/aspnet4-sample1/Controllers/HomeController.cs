@@ -11,7 +11,7 @@ namespace aspnet4_sample1.Controllers
     {
         public ActionResult Index()
         {
-            var nameClaim = ClaimsPrincipal.Current.FindFirst("name");
+            var nameClaim = ClaimsPrincipal.Current.FindFirst("nickname");
 
             if (nameClaim != null && !string.IsNullOrEmpty(nameClaim.Value))
                 ViewBag.Name = nameClaim.Value;
