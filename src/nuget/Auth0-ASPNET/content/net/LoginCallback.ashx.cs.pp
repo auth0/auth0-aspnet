@@ -21,18 +21,8 @@
             var user = new List<KeyValuePair<string, object>>
             {
                 new KeyValuePair<string, object>("name", profile.Name),
-                new KeyValuePair<string, object>("email", profile.Email),
-                new KeyValuePair<string, object>("family_name", profile.FamilyName),
-                new KeyValuePair<string, object>("gender", profile.Gender),
-                new KeyValuePair<string, object>("given_name", profile.GivenName),
                 new KeyValuePair<string, object>("nickname", profile.Nickname),
-                new KeyValuePair<string, object>("picture", profile.Picture),
-                new KeyValuePair<string, object>("user_id", profile.UserId),
-                new KeyValuePair<string, object>("id_token", token.IdToken),
-                new KeyValuePair<string, object>("access_token", token.AccessToken),
-                new KeyValuePair<string, object>("connection", profile.Identities.First().Connection),
-                new KeyValuePair<string, object>("provider", profile.Identities.First().Provider)
-
+                new KeyValuePair<string, object>("picture", profile.Picture)
             };
 
             // NOTE: Uncomment the following code in order to include claims from associated identities
