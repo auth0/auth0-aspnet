@@ -18,11 +18,11 @@ namespace aspnet4_sample1
             AuthenticationApiClient client = new AuthenticationApiClient(
                 new Uri(string.Format("https://{0}", ConfigurationManager.AppSettings["auth0:Domain"])));
 
-            var token = await client.ExchangeCodeForAccessTokenAsync(new ExchangeCodeRequest
+            var token = await client.GetTokenAsync(new AuthorizationCodeTokenRequest
             {
                 ClientId = ConfigurationManager.AppSettings["auth0:ClientId"],
                 ClientSecret = ConfigurationManager.AppSettings["auth0:ClientSecret"],
-                AuthorizationCode = context.Request.QueryString["code"],
+                Code = context.Request.QueryString["code"],
                 RedirectUri = context.Request.Url.ToString()
             });
 
@@ -30,7 +30,7 @@ namespace aspnet4_sample1
 
             var user = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, object>("name", profile.UserName ?? profile.Email ?? "Name missing"),
+                new KeyValuePair<string, object>("name", profile.PreferredUsername ?? profile.Email ?? "Name missing"),
                 new KeyValuePair<string, object>("email", profile.Email),
                 new KeyValuePair<string, object>("family_name", profile.LastName),
                 new KeyValuePair<string, object>("given_name", profile.FirstName),
@@ -39,9 +39,7 @@ namespace aspnet4_sample1
                 new KeyValuePair<string, object>("user_id", profile.UserId),
                 new KeyValuePair<string, object>("id_token", token.IdToken),
                 new KeyValuePair<string, object>("access_token", token.AccessToken),
-                new KeyValuePair<string, object>("refresh_token", token.RefreshToken),
-                new KeyValuePair<string, object>("connection", profile.Identities.First().Connection),
-                new KeyValuePair<string, object>("provider", profile.Identities.First().Provider)
+                new KeyValuePair<string, object>("refresh_token", token.RefreshToken)
             };
 
             // NOTE: Uncomment the following code in order to include claims from associated identities

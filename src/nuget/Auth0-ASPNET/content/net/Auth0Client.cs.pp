@@ -47,7 +47,7 @@ namespace $rootnamespace$
             if (tokenResult == null)
                 throw new ArgumentNullException("tokenResult");
             UserProfile userProfileFromJson = this.GetUserProfileFromJson(!string.IsNullOrEmpty(tokenResult.IdToken) ? this.GetJsonProfileFromIdToken(tokenResult.IdToken) : this.GetJsonProfileFromAccessToken(tokenResult.AccessToken));
-            if (!string.IsNullOrEmpty(userProfileFromJson.UserId))
+            if (!string.IsNullOrEmpty(userProfileFromJson.Nickname))
                 return userProfileFromJson;
             return this.GetUserInfo(new TokenResult()
             {
