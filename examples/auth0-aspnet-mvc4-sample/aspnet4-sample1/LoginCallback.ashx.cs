@@ -30,7 +30,7 @@ namespace aspnet4_sample1
 
             var user = new List<KeyValuePair<string, object>>
             {
-                new KeyValuePair<string, object>("name", profile.PreferredUsername ?? profile.Email ?? "Name missing"),
+                new KeyValuePair<string, object>("name", profile.FullName ?? profile.PreferredUsername ?? profile.Email),
                 new KeyValuePair<string, object>("email", profile.Email),
                 new KeyValuePair<string, object>("family_name", profile.LastName),
                 new KeyValuePair<string, object>("given_name", profile.FirstName),

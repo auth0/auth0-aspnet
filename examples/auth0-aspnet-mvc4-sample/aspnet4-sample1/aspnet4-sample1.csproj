@@ -48,7 +48,7 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Auth0.AspNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Auth0-ASPNET.1.6.0\lib\net45\Auth0.AspNet.dll</HintPath>
+      <HintPath>..\packages\Auth0-ASPNET.2.0.0\lib\net45\Auth0.AspNet.dll</HintPath>
     </Reference>
     <Reference Include="Auth0.AuthenticationApi, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Auth0.AuthenticationApi.4.2.0\lib\netstandard1.1\Auth0.AuthenticationApi.dll</HintPath>
@@ -209,7 +209,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

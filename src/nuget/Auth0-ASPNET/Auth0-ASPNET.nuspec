@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Auth0-ASPNET</id>
-    <version>1.6.0</version>
+    <version>2.0.0</version>
     <title>Configure Auth0 with ASP.NET</title>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
@@ -32,8 +32,8 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="..\..\Auth0.AspNet\bin\Debug\Auth0.AspNet.dll" target="lib\net" />
-    <file src="..\..\Auth0.AspNet.Net45\bin\Debug\Auth0.AspNet.dll" target="lib\net45" />
+    <file src="..\..\Auth0.AspNet\bin\Release\Auth0.AspNet.dll" target="lib\net" />
+    <file src="..\..\Auth0.AspNet.Net45\bin\Release\Auth0.AspNet.dll" target="lib\net45" />
     <file src="content\**\*.*" target="content" />
   </files>
 </package>
