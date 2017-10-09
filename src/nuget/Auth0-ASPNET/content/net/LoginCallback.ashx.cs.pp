@@ -2,6 +2,7 @@
 {
 	using Auth0.AspNet;
     using Microsoft.IdentityModel.Web;
+    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Linq;
@@ -41,15 +42,30 @@
             //       You can choose your own mechanism to keep the user authenticated (FormsAuthentication, Session, etc.)
             FederatedAuthentication.SessionAuthenticationModule.CreateSessionCookie(user);
             
-            if (context.Request.QueryString["state"] != null && context.Request.QueryString["state"].StartsWith("ru="))
+            var state = context.Request.QueryString["state"];
+            if (state != null)
             {
-                var state = HttpUtility.ParseQueryString(context.Request.QueryString["state"]);
-                context.Response.Redirect(state["ru"], true);
+                var stateValues = HttpUtility.ParseQueryString(context.Request.QueryString["state"]);
+                var redirectUrl = stateValues["ru"];
+
+                // check for open redirection
+                if (redirectUrl != null && IsLocalUrl(redirectUrl))
+                {
+                    context.Response.Redirect(redirectUrl, true);
+                }
             }
 
             context.Response.Redirect("/");
         }
 
         public bool IsReusable { get { return false; } }
+
+        private bool IsLocalUrl(string url)
+        {
+            return !String.IsNullOrEmpty(url)
+                && url.StartsWith("/")
+                && !url.StartsWith("//")
+                && !url.StartsWith("/\\");
+        }
     }
 }
