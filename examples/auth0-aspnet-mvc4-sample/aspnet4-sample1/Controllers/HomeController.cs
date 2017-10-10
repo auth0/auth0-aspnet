@@ -30,19 +30,5 @@ namespace aspnet4_sample1.Controllers
 
             return View();
         }
-
-        public ActionResult Logout()
-        {
-            FederatedAuthentication.SessionAuthenticationModule.SignOut();
-
-            // Redirect to Auth0's logout endpoint
-            var returnTo = Url.Action("Index", "Home", null, protocol: Request.Url.Scheme);
-            return Redirect(
-              string.Format(CultureInfo.InvariantCulture,
-                "https://{0}/v2/logout?returnTo={1}&client_id={2}",
-                ConfigurationManager.AppSettings["auth0:Domain"],
-                Server.UrlEncode(returnTo),
-                ConfigurationManager.AppSettings["auth0:ClientId"]));
-        }
     }
 }

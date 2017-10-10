@@ -42,21 +42,5 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    <script src="http://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
-    <script type="text/javascript">
-        var webAuth = new auth0.WebAuth({
-            domain: '@ConfigurationManager.AppSettings["auth0:Domain"]',
-            clientID: '@ConfigurationManager.AppSettings["auth0:ClientId"]',
-            redirectUri: 'http://localhost:4987/LoginCallback.ashx',
-            audience: 'https://@ConfigurationManager.AppSettings["auth0:Domain"]/userinfo',
-            responseType: 'code',
-            scope: 'openid profile'
-        });
-
-        function signin() {
-            webAuth.authorize();
-      }
-    </script>
 </body>
 </html>
