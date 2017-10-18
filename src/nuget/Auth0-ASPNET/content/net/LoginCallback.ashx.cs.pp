@@ -42,7 +42,8 @@
             //       You can choose your own mechanism to keep the user authenticated (FormsAuthentication, Session, etc.)
             FederatedAuthentication.SessionAuthenticationModule.CreateSessionCookie(user);
             
-            var state = context.Request.QueryString["state"];
+            var returnTo = "/";
+			var state = context.Request.QueryString["state"];
             if (state != null)
             {
                 var stateValues = HttpUtility.ParseQueryString(context.Request.QueryString["state"]);
@@ -51,11 +52,11 @@
                 // check for open redirection
                 if (redirectUrl != null && IsLocalUrl(redirectUrl))
                 {
-                    context.Response.Redirect(redirectUrl, true);
+                    returnTo = redirectUrl;
                 }
             }
 
-            context.Response.Redirect("/");
+            context.Response.Redirect(returnTo);
         }
 
         public bool IsReusable { get { return false; } }
