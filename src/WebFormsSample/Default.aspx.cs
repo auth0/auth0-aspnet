@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Microsoft.IdentityModel.Web;
 
 namespace WebFormsSample
 {
@@ -13,7 +14,7 @@ namespace WebFormsSample
         {
             var returnUrl = this.Request.Url;
 
-            System.IdentityModel.Services.FederatedAuthentication.SessionAuthenticationModule.SignOut();
+            FederatedAuthentication.SessionAuthenticationModule.SignOut();
             
             Response.Redirect(
                 string.Format("https://{0}/logout?returnTo={1}",

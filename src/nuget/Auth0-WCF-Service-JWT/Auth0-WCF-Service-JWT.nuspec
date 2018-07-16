@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Auth0-WCF-Service-JWT</id>
+        <version>1.0.3</version>
+        <title>WCF ServiceAuthorizationManager that will validate a JWT and set the principal</title>
+        <authors>Auth0</authors>
+        <owners>Auth0</owners>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>This is a ServiceAuthorizationManager from WCF that will extract the bearer JWT from Authorization header, validate it and then set the principal to a ClaimsPrincipal</description>
+        <copyright>Copyright 2013 Auth0</copyright>
+        <tags>wcf jwt auth0</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.0">
+                <dependency id="Microsoft.IdentityModel" version="6.1.7600.16394" />
+            </group>
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.IdentityModel" targetFramework=".NETFramework4.5" />
+            <frameworkAssembly assemblyName="System.IdentityModel" targetFramework=".NETFramework4.0" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="content\net40\JWT.cs" target="content\net40\JWT.cs" />
+        <file src="content\net40\ValidateJsonWebToken.cs.pp" target="content\net40\ValidateJsonWebToken.cs.pp" />
+        <file src="content\net40\web.config.transform" target="content\net40\web.config.transform" />
+        <file src="content\net45\JWT.cs" target="content\net45\JWT.cs" />
+        <file src="content\net45\ValidateJsonWebToken.cs.pp" target="content\net45\ValidateJsonWebToken.cs.pp" />
+        <file src="content\net45\web.config.transform" target="content\net45\web.config.transform" />
+    </files>
+</package>

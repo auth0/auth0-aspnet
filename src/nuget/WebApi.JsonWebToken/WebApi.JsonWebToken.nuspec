@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>WebApi.JsonWebToken</id>
+        <version>0.3.0</version>
+        <title>JsonWebToken DelegatingHandler for WebAPI</title>
+        <authors>Matias Woloski</authors>
+        <owners>auth0</owners>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>http://auth0.com</projectUrl>
+        <iconUrl>https://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2?s=420</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>JsonWebToken DelegatingHandler for ASP.NET Web API</description>
+        <summary>JsonWebToken DelegatingHandler for ASP.NET Web API</summary>
+        <tags>jwt, webapi, Auth0, OAuth</tags>
+        <dependencies>
+            <dependency id="JWT" version="1.3.2" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.IdentityModel" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Web.Extensions" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="content\App_Start\JsonWebToken.cs.pp" target="content\App_Start\JsonWebToken.cs.pp" />
+        <file src="content\App_Start\JsonWebTokenValidationHandler.cs.pp" target="content\App_Start\JsonWebTokenValidationHandler.cs.pp" />
+        <file src="README.md" target="README.md" />
+        <file src="README.txt" target="README.txt" />
+    </files>
+</package>

@@ -1,0 +1,25 @@
+﻿<configuration>
+	<appSettings>
+	  	<!-- 
+	  		JsonWebToken configuration
+	  	-->
+        <!--
+        <add key="jwt:SymmetricKey" value="" />
+        <add key="jwt:AllowedAudience" value="" />
+        <add key="jwt:AllowedIssuer" value="" />
+        -->
+	</appSettings>
+	<system.serviceModel>
+        <behaviors>
+          <serviceBehaviors>
+            <behavior>
+            <!-- 
+    	       Add the following configuration to the WCF <serviceBehavior>/<behavior> element 
+    	   
+    	       <serviceAuthorization principalPermissionMode="Custom" serviceAuthorizationManagerType="$rootnamespace$.ValidateJsonWebToken, $rootnamespace$" />
+            -->
+            </behavior>
+          </serviceBehaviors>
+        </behaviors>
+    </system.serviceModel>
+</configuration>
