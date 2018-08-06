@@ -1,3 +1,7 @@
+# Security notice
+
+This package has unresolved security issue and has been deprecated. See the [security notice](SECURITY-NOTICE.md) for more details.
+
 ## Deprecated repository
 
 The libraries in this repository have been deprecated. If you want to use Auth0 with ASP.NET applications, we advise customers to add OWIN to their application and follow the [ASP.NET (OWIN)](https://auth0.com/docs/quickstart/webapp/aspnet-owin) or [ASP.NET Web API (OWIN)](https://auth0.com/docs/quickstart/backend/webapi-owin) Quickstarts.
