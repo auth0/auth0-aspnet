@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Auth0-WCF-Service-JWT</id>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <title>WCF ServiceAuthorizationManager that will validate a JWT and set the principal</title>
         <authors>Auth0</authors>
         <owners>Auth0</owners>
