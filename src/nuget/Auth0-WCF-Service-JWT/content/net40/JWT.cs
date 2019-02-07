@@ -102,7 +102,7 @@ namespace JWT
 
                 if (decodedCrypto != decodedSignature)
                 {
-                    throw new SignatureVerificationException(string.Format("Invalid signature. Expected {0} got {1}", decodedCrypto, decodedSignature));
+                    throw new SignatureVerificationException("Invalid signature.");
                 }
             }
 
